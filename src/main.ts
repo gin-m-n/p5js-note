@@ -1,24 +1,25 @@
+import sketchList from './sketch'
 import './style.css'
-import p5 from 'p5'
 
+const app = document.getElementById("app") as HTMLElement
+const path = location.pathname
 
-
-export const start = () => {
-  const sketch = (p: p5) => {
-    p.setup = () => {
-      p.createCanvas(p.windowWidth, p.windowHeight)
-      p.background(220)
-      p.frameRate(30)
-    }
-
-    p.draw = () => {
-    }
-
-    p.mouseMoved = () => {
-      p.ellipse(p.mouseX, p.mouseY, 10, 10)
-    }
+if (path === "/") {
+  app.innerHTML = `
+    <ul>
+      ${sketchList.map((sketch) => (`
+      <li>
+        <a href=${sketch.name}>${sketch.name}</a>
+      </li>
+      `)).join("")}
+    </ul>
+  `
+} else {
+  const sketch = sketchList.find(s => s.name === path.slice(1))
+  if (sketch) {
+    sketch.start(app)
+  } else {
+    app.innerHTML = `not found`
   }
-  new p5(sketch)
 }
 
-start()
