@@ -30,7 +30,7 @@ export const start = (node: HTMLElement) => {
       for (let y = 0; y <= p.height; y += LINE_LENGTH - 5) {
         const ynoise = y / 100;
         for (let x = 0; x <= p.width; x += LINE_LENGTH - 5) {
-          const xnoise = x / 100 + t / 5;
+          const xnoise = x / 200 + t / 5;
           drawLine(p, x, y, p.noise(xnoise, ynoise))
         }
       }
