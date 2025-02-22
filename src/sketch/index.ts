@@ -9,7 +9,7 @@ import { start as start8 } from "./part1-2/8";
 import { start as start9 } from "./part1-2/noise-3d_1";
 import { start as start10 } from "./part1-2/noise-3d_2";
 import { start as start11 } from "./part1-2/my-sphere";
-import { start as start12 } from "./part3/moveCircles";
+import { start as start12 } from "./part3/circle-emergence";
 
 const sketchList = [
   { name: "1", start: start1 },
@@ -23,7 +23,7 @@ const sketchList = [
   { name: "3d-noise_1", start: start9 },
   { name: "3d-noise_2", start: start10 },
   { name: "my-sphere", start: start11 },
-  { name: "moveCircles", start: start12 },
+  { name: "circle-emergence", start: start12 },
 ]
 
 export default sketchList
