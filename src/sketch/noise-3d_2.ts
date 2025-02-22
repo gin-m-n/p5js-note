@@ -30,23 +30,25 @@ export const start = (node: HTMLElement) => {
     p.draw = () => {
       const t = performance.now() / 1000
       p.background(BG_COLOR);
-      xstart += 0.01
-      ystart += 0.01
-      zstart += 0.01
+      const startNoiseStep = 0.05
+      xstart += startNoiseStep
+      ystart += startNoiseStep
+      zstart += startNoiseStep
 
       p.translate(0, 0, 600)
       p.rotateX(t / 3)
       p.rotateY(t / 3)
 
+      const noiseStep = 0.1
       let znoise = zstart;
       for (let z = 0; z < sideLength; z += step) {
-        znoise += 0.1
+        znoise += noiseStep
         let ynoise = ystart;
         for (let y = 0; y <= sideLength; y += step) {
-          ynoise += 0.1
+          ynoise += noiseStep
           let xnoise = xstart;
           for (let x = 0; x <= sideLength; x += step) {
-            xnoise += 0.1
+            xnoise += noiseStep
             drawPoint(x, y, z, p.noise(xnoise, ynoise, znoise))
           }
         }
