@@ -6,7 +6,7 @@ import { start as start5 } from "./5";
 import { start as start6 } from "./6";
 import { start as start7 } from "./7";
 import { start as start8 } from "./8";
-import { start as start9 } from "./9";
+import { start as start9 } from "./noise-3d_1.ts";
 
 const sketchList = [
   { name: "1", start: start1 },
