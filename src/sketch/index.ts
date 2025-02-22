@@ -1,14 +1,14 @@
-import { start as start1 } from "./1";
-import { start as start2 } from "./2";
-import { start as start3 } from "./3";
-import { start as start4 } from "./4";
-import { start as start5 } from "./5";
-import { start as start6 } from "./6";
-import { start as start7 } from "./7";
-import { start as start8 } from "./8";
-import { start as start9 } from "./noise-3d_1";
-import { start as start10 } from "./noise-3d_2";
-import { start as start11 } from "./my-sphere";
+import { start as start1 } from "./part1-2/1";
+import { start as start2 } from "./part1-2/2";
+import { start as start3 } from "./part1-2/3";
+import { start as start4 } from "./part1-2/4";
+import { start as start5 } from "./part1-2/5";
+import { start as start6 } from "./part1-2/6";
+import { start as start7 } from "./part1-2/7";
+import { start as start8 } from "./part1-2/8";
+import { start as start9 } from "./part1-2/noise-3d_1";
+import { start as start10 } from "./part1-2/noise-3d_2";
+import { start as start11 } from "./part1-2/my-sphere";
 
 const sketchList = [
   { name: "1", start: start1 },
