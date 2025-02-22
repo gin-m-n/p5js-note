@@ -6,8 +6,9 @@ import { start as start5 } from "./5";
 import { start as start6 } from "./6";
 import { start as start7 } from "./7";
 import { start as start8 } from "./8";
-import { start as start9 } from "./noise-3d_1.ts";
-import { start as start10 } from "./noise-3d_2.ts";
+import { start as start9 } from "./noise-3d_1";
+import { start as start10 } from "./noise-3d_2";
+import { start as start11 } from "./my-sphere";
 
 const sketchList = [
   { name: "1", start: start1 },
@@ -20,6 +21,7 @@ const sketchList = [
   { name: "8_noise-4", start: start8 },
   { name: "3d-noise_1", start: start9 },
   { name: "3d-noise_2", start: start10 },
+  { name: "my-sphere", start: start11 },
 ]
 
 export default sketchList
