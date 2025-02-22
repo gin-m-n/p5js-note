@@ -1,7 +1,6 @@
 import p5, { Color } from 'p5'
 import GUI from 'lil-gui';
 
-const gui = new GUI();
 
 export const start = (node: HTMLElement) => {
   const sketch = (p: p5) => {
@@ -127,6 +126,7 @@ export const start = (node: HTMLElement) => {
       })
     }
 
+    const gui = new GUI();
     gui.add(param, 'isOriginCircleDrawn');
     gui.add(param, "isChildCircleDrawn")
     gui.add(param, "numberOfOriginCircle").listen().disable()
