@@ -121,5 +121,3 @@ export const start = (node: HTMLElement) => {
   new p5(sketch, node)
 }
 
-
-

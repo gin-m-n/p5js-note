@@ -6,6 +6,7 @@ import { start as start5 } from "./5";
 import { start as start6 } from "./6";
 import { start as start7 } from "./7";
 import { start as start8 } from "./8";
+import { start as start9 } from "./9";
 
 const sketchList = [
   { name: "1", start: start1 },
@@ -16,6 +17,7 @@ const sketchList = [
   { name: "6_noise-2", start: start6 },
   { name: "7_noise-3", start: start7 },
   { name: "8_noise-4", start: start8 },
+  { name: "9_3d-noise", start: start9 },
 ]
 
 export default sketchList
