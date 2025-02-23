@@ -17,7 +17,7 @@ export const start = (node: HTMLElement) => {
       constructor() {
         this.x = p.random(p.width)
         this.y = p.random(p.height)
-        this.radius = p.random(120) + 10
+        this.radius = p.random(100) + 100
         this.linecol = p.color(p.random(255), p.random(255), p.random(255), 150)
         this.alpha = p.random(255)
         this.fillColor = p.color(p.random(255), p.random(255), p.random(255), this.alpha)
@@ -78,7 +78,9 @@ export const start = (node: HTMLElement) => {
             const midx = (c.x + other.x) / 2
             const midy = (c.y + other.y) / 2
             const overlap = -c.overlap(other)
-            p.stroke(0, 100)
+            const { r, g, b } = param.strokeColor
+            p.stroke(r, g, b, param.strokeAlpha)
+            p.strokeWeight(param.strokeWeight)
             p.noFill()
             p.ellipse(midx, midy, overlap, overlap)
           })
@@ -89,25 +91,29 @@ export const start = (node: HTMLElement) => {
 
     const circleArr: Circle[] = []
     const param = {
-      isOriginCircleDrawn: true,
-      isChildCircleDrawn: false,
-      numberOfOriginCircle: 0
+      isOriginCircleDrawn: false,
+      isChildCircleDrawn: true,
+      numberOfOriginCircle: 0,
+      strokeWeight: 1,
+      strokeColor: { r: 0, g: 0, b: 0 },
+      strokeAlpha: 10,
+      backgroudColor: "rgb(200,200,200)"
     }
-    const BG_COLOR = 255;
+
     p.setup = () => {
       p.createCanvas(p.windowWidth, p.windowHeight);
       p.frameRate(60)
       p.smooth();
-      p.background(BG_COLOR);
+      p.background(param.backgroudColor);
       p.strokeWeight(1);
 
-      Array(10).fill(0).forEach(() => {
+      Array(20).fill(0).forEach(() => {
         addCircle(new Circle())
       })
     }
 
     p.draw = () => {
-      p.background(BG_COLOR);
+      p.background(param.backgroudColor);
 
       circleArr.forEach((c) => {
         c.updateMe()
@@ -129,6 +135,10 @@ export const start = (node: HTMLElement) => {
     const gui = new GUI();
     gui.add(param, 'isOriginCircleDrawn');
     gui.add(param, "isChildCircleDrawn")
+    gui.add(param, "strokeWeight").min(0).max(3)
+    gui.add(param, "strokeAlpha").min(0).max(255)
+    gui.addColor(param, "backgroudColor")
+    gui.addColor(param, "strokeColor", 255)
     gui.add(param, "numberOfOriginCircle").listen().disable()
   }
 
