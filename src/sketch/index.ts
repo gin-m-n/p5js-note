@@ -11,6 +11,7 @@ import { start as start10 } from "./part1-2/noise-3d_2";
 import { start as start11 } from "./part1-2/my-sphere";
 import { start as start12 } from "./part3/circle-emergence";
 import { start as start13 } from "./part3/collision-emergence";
+import { start as start14 } from "./part3/cell-automaton";
 
 const sketchList = [
   { name: "1", start: start1 },
@@ -26,6 +27,7 @@ const sketchList = [
   { name: "my-sphere", start: start11 },
   { name: "circle-emergence", start: start12 },
   { name: "collision-emergence", start: start13 },
+  { name: "cell-automaton", start: start14 },
 ]
 
 export default sketchList
