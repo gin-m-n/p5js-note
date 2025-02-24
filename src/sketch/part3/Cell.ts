@@ -25,7 +25,20 @@ export class Cell {
     this.neighbours.push(cell)
   }
 
-  calcNextState() {
+  calcNextState(rule: "GOL" | "Gerrard") {
+    switch (rule) {
+      case "GOL":
+        this.golRule()
+        return
+      case "Gerrard":
+        this.gerrardRule()
+        return
+      default:
+        throw new Error("unexpected rule")
+    }
+  }
+
+  private golRule() {
     const alive = this.neighbours.reduce((prev, curr) => prev + (curr.state ? 1 : 0), 0)
     if (this.state) {
       if (alive === 2 || alive === 3) {
@@ -40,8 +53,21 @@ export class Cell {
         this.nextState = false
       }
     }
-
   }
+
+  private gerrardRule() {
+    const alive = this.neighbours.reduce((prev, curr) => prev + (curr.state ? 1 : 0), 0) + (this.state ? 1 : 0)
+    if (alive <= 4) {
+      this.nextState = false
+    } else if (alive > 4) {
+      this.nextState = true
+    }
+
+    if (alive === 4 || alive === 5) {
+      this.nextState = !this.nextState
+    }
+  }
+
 
   drawMe(p: p5) {
     this.state = this.nextState

@@ -53,7 +53,7 @@ export const start = (node: HTMLElement) => {
       p.background(255);
       cellArray.forEach(arr =>
         arr.forEach(cell => {
-          cell.calcNextState()
+          cell.calcNextState("Gerrard")
         })
       )
 
