@@ -1,5 +1,7 @@
 import p5 from "p5";
 
+export type Rule = "GOL" | "Gerrard"
+
 export class Cell {
   x: number
   y: number
@@ -25,7 +27,7 @@ export class Cell {
     this.neighbours.push(cell)
   }
 
-  calcNextState(rule: "GOL" | "Gerrard") {
+  calcNextState(rule: Rule) {
     switch (rule) {
       case "GOL":
         this.golRule()

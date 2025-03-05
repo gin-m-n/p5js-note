@@ -1,11 +1,17 @@
 import p5 from 'p5'
-import { Cell } from './Cell'
+import { Cell, Rule } from './Cell'
+import GUI from 'lil-gui'
 
 export const start = (node: HTMLElement) => {
+
   const sketch = (p: p5) => {
+    const param: { rule: Rule } = {
+      rule: "GOL"
+    }
+
     let numx = 0
     let numy = 0
-    const cellArray: Cell[][] = []
+    let cellArray: Cell[][] = []
 
     p.setup = () => {
       p.createCanvas(1000, 800);
@@ -16,6 +22,7 @@ export const start = (node: HTMLElement) => {
     }
 
     const restart = () => {
+      cellArray = []
       for (let x = 0; x < numx; x += 1) {
         const arr: Cell[] = []
         for (let y = 0; y < numy; y += 1) {
@@ -48,12 +55,11 @@ export const start = (node: HTMLElement) => {
       }
     }
 
-
     p.draw = () => {
       p.background(255);
       cellArray.forEach(arr =>
         arr.forEach(cell => {
-          cell.calcNextState("Gerrard")
+          cell.calcNextState(param.rule)
         })
       )
 
@@ -64,9 +70,16 @@ export const start = (node: HTMLElement) => {
           cell.drawMe(p)
         })
       )
-
     }
 
+    const gui = new GUI();
+    const rules: Rule[] = ["GOL", "Gerrard"]
+    gui.add(param, "rule", rules)
+    gui.onChange(event => {
+      if (event.property === "rule") {
+        restart()
+      }
+    })
 
   }
   new p5(sketch, node)
