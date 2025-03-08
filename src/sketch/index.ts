@@ -12,6 +12,8 @@ import { start as start11 } from "./part1-2/my-sphere";
 import { start as start12 } from "./part3/circle-emergence";
 import { start as start13 } from "./part3/collision-emergence";
 import { start as start14 } from "./part3/cell-automaton";
+import { importModulesMyProject } from "../import";
+
 
 const sketchList = [
   { name: "1", start: start1 },
@@ -29,5 +31,13 @@ const sketchList = [
   { name: "collision-emergence", start: start13 },
   { name: "cell-automaton", start: start14 },
 ]
+
+const modules = importModulesMyProject()
+for (const key in modules) {
+  sketchList.push({
+    name: key, start: modules[key]
+  })
+
+}
 
 export default sketchList
